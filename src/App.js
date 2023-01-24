@@ -12,6 +12,7 @@ function App() {
         <Nav />
         <Profile />
         <Footer />
+
     </div>
   );
 }
