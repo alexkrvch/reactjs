@@ -4,13 +4,17 @@ import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import Profile from "./components/Profile/Profile";
+import Dialogs from "./components/Dialogs/Dialogs";
 
 function App() {
   return (
     <div className="App">
         <Header />
         <Nav />
-        <Profile />
+        <div className="wrapper__content">
+            {/*<Profile />*/}
+            <Dialogs />
+        </div>
         <Footer />
     </div>
   );
