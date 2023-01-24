@@ -1,6 +1,8 @@
+import s from './Footer.module.css'
+
 const Footer = () => {
     return (
-        <footer className="app-footer">Copyright | all information open</footer>
+        <footer className={s.footer}>Copyright | all information open</footer>
     )
 };
 

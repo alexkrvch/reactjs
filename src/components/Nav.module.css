@@ -1,0 +1,35 @@
+.nav {
+    grid-area: n;
+    border: 1px solid rgba(255,0,0,.2);
+    display: flex;
+    align-content: center;
+    flex-flow: column;
+}
+
+.item {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    position: relative;
+    font-size: 0.7em;
+}
+
+.item span {
+    position: relative;
+    padding: 5px 0 3px;
+}
+
+.item span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.2s;
+    border-bottom: 1px solid rgba(255,255,255,0);
+}
+
+.item:hover span:after, .item.active span:after {
+    border-bottom: 1px solid rgba(255,255,255,1);
+}
