@@ -11,9 +11,9 @@ const MyPosts = () => {
                 <button>Remove</button>
             </div>
             <div className={s.latestPosts}>
-                <Post />
-                <Post />
-                <Post />
+                <Post message="It's my first post" date="18.02.2022" countLike="29" />
+                <Post message="My demo post" date="24.02.2022" countLike="14" />
+                <Post message="Hello world" date="29.02.2022" countLike="1" />
             </div>
         </div>
     )
