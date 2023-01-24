@@ -1,0 +1,45 @@
+.profile {
+    grid-area: c;
+    border: 1px solid rgba(255,0,0,.2);
+}
+
+.profileBase {
+    display: flex;
+}
+
+.profile__info {
+    max-width: 100%;
+}
+
+.profile__photo img {
+    max-width: 200px;
+}
+
+.latestPosts {
+    padding: 20px;
+}
+
+.userinfo {
+    padding: 10px;
+}
+
+.username {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.description {
+    font-size: 0.6em;
+}
+
+.myPosts {
+    border-top: 1px solid rgba(255,0,0,.2);
+}
+
+.newPost {
+    color: #aaa;
+}
+
+.item {
+    font-size: 0.9em;
+}
