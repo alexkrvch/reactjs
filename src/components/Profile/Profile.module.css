@@ -31,15 +31,3 @@
 .description {
     font-size: 0.6em;
 }
-
-.myPosts {
-    border-top: 1px solid rgba(255,0,0,.2);
-}
-
-.newPost {
-    color: #aaa;
-}
-
-.item {
-    font-size: 0.9em;
-}
