@@ -1,3 +1,41 @@
 .dialogs {
     border: 1px solid rgba(255,0,0,.2);
 }
+
+.content_dialogs {
+    display: flex;
+}
+
+.dialogs_list {
+    display: block;
+    width: 30%;
+    box-sizing: border-box;
+    padding: 30px 10px;
+}
+
+.dialogs_item {
+    font-size: 0.8em;
+    padding: 15px 25px;
+    margin: 10px 0;
+    border: 1px solid rgba(255,0,0,0.2);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.dialogs_item.active, .dialogs_item:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.messages_list {
+    display: block;
+    width: 70%;
+    box-sizing: border-box;
+    padding-left: 30px;
+}
+
+.message_item {
+    font-size: 0.8em;
+    padding: 15px 25px;
+    margin: 10px 0;
+    border: 1px solid rgba(255,0,0,0.2);
+}
