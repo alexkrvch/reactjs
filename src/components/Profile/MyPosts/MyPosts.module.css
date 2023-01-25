@@ -5,3 +5,47 @@
 .newPost {
     color: #aaa;
 }
+
+.newPost textarea {
+    display: block;
+    width: 100%;
+    height: 90px;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+    border: 1px solid #fff;
+}
+
+.newPost textarea:focus {
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    align-self: flex-end;
+    justify-content: right;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.buttons button {
+    display: flex;
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0);
+    border-radius: 0;
+    border: 1px solid #ffffff;
+    transition: all 0.2s;
+    margin: 0 0 0 10px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: rgba(255,255,255,1);
+    color: #000;
+}
