@@ -1,0 +1,24 @@
+.profileBase {
+    display: flex;
+}
+
+.profile__info {
+    max-width: 100%;
+}
+
+.profile__photo img {
+    max-width: 200px;
+}
+
+.userinfo {
+    padding: 10px;
+}
+
+.username {
+    font-size: 1em;
+    margin: 0;
+}
+
+.description {
+    font-size: 0.6em;
+}

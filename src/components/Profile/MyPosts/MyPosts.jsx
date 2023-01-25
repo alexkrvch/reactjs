@@ -7,8 +7,10 @@ const MyPosts = () => {
             <h3>My posts</h3>
             <div className={s.newPost}>
                 <textarea></textarea>
-                <button>Add post</button>
-                <button>Remove</button>
+                <div className={s.buttons}>
+                    <button>Add post</button>
+                    <button>Remove</button>
+                </div>
             </div>
             <div className={s.latestPosts}>
                 <Post message="It's my first post" date="18.02.2022" countLike="29" />
