@@ -5,8 +5,8 @@ const Dialog = (props) => {
     return (
         <NavLink to={`/dialogs/${props.url}`} className={({ isActive }) => isActive ? `${s.dialogs_item} ${s.active}` : s.dialogs_item}>
             <span>{props.name}</span>
-            <span>{props.lastmessage}</span>
-            <span>{props.datemassage}</span>
+            <span>{props.lastMessage}</span>
+            <span>{props.dateMessage}</span>
         </NavLink>
     )
 }
@@ -15,7 +15,7 @@ const Message = (props) => {
     return (
         <div className={s.message_item}>
             <p>{props.text}</p>
-            <p>{props.datemessage}</p>
+            <p>{props.dateMessage}</p>
         </div>
     )
 }
@@ -26,27 +26,32 @@ const Dialogs = () => {
         {
             id: 1,
             name: "Alex",
-            lastMessage: "someone text"
+            lastMessage: "someone text",
+            dateMessage: "28.10.2022"
         },
         {
             id: 2,
             name: "Andy",
-            lastMessage: "last message"
+            lastMessage: "last message",
+            dateMessage: "19.09.2022"
         },
         {
             id: 3,
             name: "Mikhail",
-            lastMessage: "hi, can i ask something?"
+            lastMessage: "hi, can i ask something?",
+            dateMessage: "12.04.2022"
         },
         {
             id: 4,
             name: "Ragnar",
-            lastMessage: "thank you"
+            lastMessage: "thank you",
+            dateMessage: "20.05.2021"
         },
         {
             id: 5,
             name: "Eriks",
-            lastMessage: "when you finish project?"
+            lastMessage: "when you finish project?",
+            dateMessage: "04.01.2021"
         }
     ]
 
@@ -68,21 +73,18 @@ const Dialogs = () => {
         }
     ]
 
+    let dialogs = dialogsData.map(d => <Dialog name={d.name} lastMessage={d.lastMessage} dateMessage={d.dateMessage} url={d.id} />)
+    let messages = messageData.map(m => <Message id={m.id} text={m.text} dateMessage={m.dateMessage} />)
+
     return (
         <div className={s.dialogs}>
             <h1>Dialogs</h1>
             <div className={s.content_dialogs}>
                 <div className={s.dialogs_list}>
-                    <Dialog name="Alex" lastmessage="someone text" datemassage="28.10.2022" url="1" />
-                    <Dialog name="Andy" lastmessage="last message" datemassage="19.09.2022" url="2" />
-                    <Dialog name="Mikhail" lastmessage="hi, can i ask something?" datemassage="12.04.2022" url="3" />
-                    <Dialog name="Ragnar" lastmessage="thank you" datemassage="20.05.2021" url="4" />
-                    <Dialog name="Eriks" lastmessage="when you finish project?" datemassage="04.01.2021" url="5" />
+                    {dialogs}
                 </div>
                 <div className={s.messages_list}>
-                    <Message text="Hi" datemessage="20.04.2022" />
-                    <Message text="How are you?" datemessage="20.05.2022" />
-                    <Message text="Are you found job?" datemessage="20.05.2022" />
+                    {messages}
                 </div>
             </div>
         </div>

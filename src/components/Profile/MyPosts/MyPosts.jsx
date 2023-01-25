@@ -24,6 +24,8 @@ const MyPosts = () => {
         },
     ]
 
+    let posts = postData.map(p => <Post message={p.message} date={p.date} countLike={p.countLike} id={p.id} />)
+
     return (
         <div className={s.myPosts}>
             <h3>My posts</h3>
@@ -35,9 +37,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={s.latestPosts}>
-                <Post message="It's my first post" date="18.02.2022" countLike="29" />
-                <Post message="My demo post" date="24.02.2022" countLike="14" />
-                <Post message="Hello world" date="29.02.2022" countLike="1" />
+                {posts}
             </div>
         </div>
     )
