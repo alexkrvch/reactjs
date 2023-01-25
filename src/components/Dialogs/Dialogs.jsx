@@ -21,6 +21,53 @@ const Message = (props) => {
 }
 
 const Dialogs = () => {
+
+    let dialogsData = [
+        {
+            id: 1,
+            name: "Alex",
+            lastMessage: "someone text"
+        },
+        {
+            id: 2,
+            name: "Andy",
+            lastMessage: "last message"
+        },
+        {
+            id: 3,
+            name: "Mikhail",
+            lastMessage: "hi, can i ask something?"
+        },
+        {
+            id: 4,
+            name: "Ragnar",
+            lastMessage: "thank you"
+        },
+        {
+            id: 5,
+            name: "Eriks",
+            lastMessage: "when you finish project?"
+        }
+    ]
+
+    let messageData = [
+        {
+            id: 1,
+            text: "Hi",
+            dateMessage: "20.04.2022"
+        },
+        {
+            id: 2,
+            text: "How are you?",
+            dateMessage: "20.05.2022",
+        },
+        {
+            id: 3,
+            text: "Are you found job?",
+            dateMessage: "20.05.2022"
+        }
+    ]
+
     return (
         <div className={s.dialogs}>
             <h1>Dialogs</h1>

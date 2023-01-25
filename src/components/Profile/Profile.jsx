@@ -3,7 +3,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import UserInfo from "./UserInfo/UserInfo";
 
 const BigImg = (props) => {
-    return <img src={props.url} />
+    return <img alt="" src={props.url} />
 }
 
 const Profile = () => {
