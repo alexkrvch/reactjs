@@ -9,7 +9,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
         <div className="App">
@@ -17,9 +17,9 @@ function App() {
             <Nav />
             <div className="wrapper__content">
                 <Routes>
-                    <Route path="/" element={<Profile />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/dialogs/*" element={<Dialogs />} />
+                    <Route path="/" element={<Profile postData={props.postData} />} />
+                    <Route path="/profile" element={<Profile postData={props.postData} />} />
+                    <Route path="/dialogs/*" element={<Dialogs dialogsData={props.dialogsData} messageData={props.messageData} />} />
                     <Route path="/music" element={<Music />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/settings" element={<Settings />} />

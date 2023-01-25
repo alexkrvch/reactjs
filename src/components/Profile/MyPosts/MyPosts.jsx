@@ -1,30 +1,9 @@
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let postData = [
-        {
-            id: 1,
-            message: "It's my first post",
-            date: "18.02.2022",
-            countLike: 29
-        },
-        {
-            id: 2,
-            message: "My demo post",
-            date: "24.02.2022",
-            countLike: 14
-        },
-        {
-            id: 3,
-            message: "Hello world",
-            date: "29.02.2022",
-            countLike: 1
-        },
-    ]
-
-    let posts = postData.map(p => <Post message={p.message} date={p.date} countLike={p.countLike} id={p.id} />)
+    let posts = props.postData.map(p => <Post message={p.message} date={p.date} countLike={p.countLike} id={p.id} key={p.id} />)
 
     return (
         <div className={s.myPosts}>
