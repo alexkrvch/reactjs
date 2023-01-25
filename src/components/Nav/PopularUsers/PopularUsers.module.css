@@ -1,0 +1,8 @@
+.popular__users {
+    display: block;
+    padding: 10px;
+}
+
+.users__list {
+    display: flex;
+}
