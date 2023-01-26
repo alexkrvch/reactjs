@@ -9,8 +9,8 @@ const MyPosts = (props) => {
     let newPostArea = React.createRef();
 
     const onAddPost = () => {
-        let text = newPostArea.current.value;
-        console.log(text)
+        console.log(newPostArea.current.value)
+        props.addPost(newPostArea.current.value);
     }
 
     return (
