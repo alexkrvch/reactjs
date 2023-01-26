@@ -106,4 +106,13 @@ let state = {
     }
 }
 
+export let addPost = (postMessage) => {
+    state.profilePage.postData.push({
+        id: 4,
+        message: postMessage,
+        date: "26.01.2023",
+        countLike: 0
+    })
+}
+
 export default state
