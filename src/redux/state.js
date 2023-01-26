@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     profilePage: {
         postData: [
@@ -19,7 +21,8 @@ let state = {
                 date: "29.02.2022",
                 countLike: 1
             },
-        ]
+        ],
+        textAreaText: ''
     },
     dialogsPage: {
         dialogsData:[
@@ -113,6 +116,8 @@ export let addPost = (postMessage) => {
         date: "26.01.2023",
         countLike: 0
     })
+    state.profilePage.textAreaText = ''
+    rerenderEntireTree(state)
 }
 
 export default state
