@@ -109,14 +109,19 @@ let state = {
     }
 }
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     state.profilePage.postData.push({
         id: 4,
-        message: postMessage,
+        message: state.profilePage.textAreaText,
         date: "26.01.2023",
         countLike: 0
     })
     state.profilePage.textAreaText = ''
+    rerenderEntireTree(state)
+}
+
+export let changePostText = (newPostText) => {
+    state.profilePage.textAreaText = newPostText
     rerenderEntireTree(state)
 }
 
