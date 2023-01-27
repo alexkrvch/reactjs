@@ -1,23 +1,22 @@
 import React from 'react';
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
+import {addPostActionCreator, changePostTextActionCreator} from "../../../redux/state";
+
+
 
 const MyPosts = (props) => {
-
     let posts = props.state.postData.map(p => <Post message={p.message} date={p.date} countLike={p.countLike} id={p.id} key={p.id} />)
-
     let newPostArea = React.createRef();
 
     const onAddPost = () => {
-        props.dispatch({type: 'ADD-POST'});
+        props.dispatch(addPostActionCreator());
     }
-
     const onPostChange = () => {
-        props.dispatch({type: 'CHANGE-POST-TEXT', newPostText: newPostArea.current.value})
+        props.dispatch(changePostTextActionCreator(newPostArea.current.value))
     }
-
     const onClearPostText = () => {
-        props.dispatch({type: 'CHANGE-POST-TEXT', newPostText: ''})
+        props.dispatch(changePostTextActionCreator(''))
     }
 
     return (
