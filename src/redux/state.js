@@ -1,8 +1,5 @@
 
 const store = {
-    _rerenderEntireTree: () => {
-        console.log('Changed state');
-    },
     _state:{
         profilePage: {
             postData: [
@@ -111,25 +108,28 @@ const store = {
             ]
         }
     },
-    getState: () => {
-        return store._state;
+    _callSubscriber() {
+        console.log('Changed state');
     },
-    addPost: () => {
-        store._state.profilePage.postData.push({
+    getState() {
+        return this._state;
+    },
+    addPost() {
+        this._state.profilePage.postData.push({
             id: 4,
-            message: store._state.profilePage.textAreaText,
+            message: this._state.profilePage.textAreaText,
             date: "26.01.2023",
             countLike: 0
         })
-        store._state.profilePage.textAreaText = ''
-        store._rerenderEntireTree(store._state)
+        this._state.profilePage.textAreaText = ''
+        this._callSubscriber(this._state)
     },
-    changePostText: (newPostText) => {
-        store._state.profilePage.textAreaText = newPostText
-        store._rerenderEntireTree(store._state)
+    changePostText(newPostText) {
+        this._state.profilePage.textAreaText = newPostText
+        this._callSubscriber(this._state)
     },
-    subscribe: (observer) => {
-        store._rerenderEntireTree = observer
+    subscribe(observer) {
+        this._callSubscriber = observer
     }
 }
 
