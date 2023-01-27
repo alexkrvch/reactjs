@@ -11,8 +11,15 @@ const Dialogs = (props) => {
     let newMessageArea = React.createRef();
 
     const onSendMessage = () => {
-        let text = newMessageArea.current.value;
-        console.log(text)
+        props.dispatch( {type: "ADD-MESSAGE"} );
+    }
+
+    const onMessageChange = () => {
+        props.dispatch( { type: "CHANGE-MESSAGE-TEXT", newMessageText: newMessageArea.current.value } )
+    }
+
+    const onClearMessageText = () => {
+        props.dispatch( {type: "CHANGE-MESSAGE-TEXT", newMessageText: ''} )
     }
 
     return (
@@ -25,10 +32,10 @@ const Dialogs = (props) => {
                 <div className={s.messages_list}>
                     {messages}
                     <div className={s.sendMessage}>
-                        <textarea ref={newMessageArea}></textarea>
+                        <textarea ref={newMessageArea} value={props.state.newMessageText} onChange={ onMessageChange }></textarea>
                         <div className={s.buttons}>
                             <button onClick={ onSendMessage }>Send message</button>
-                            <button>Remove</button>
+                            <button onClick={ onClearMessageText }>Remove</button>
                         </div>
                     </div>
                 </div>
