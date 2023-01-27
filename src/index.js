@@ -9,18 +9,17 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let rerenderEntireTree = () => {
-    let state = store.getState();
+let rerenderEntireTree = (state) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} addPost={store.addPost} changePostText={store.changePostText}/>
+                <App state={state} addPost={store.addPost.bind(store)} changePostText={store.changePostText.bind(store)}/>
             </BrowserRouter>
         </React.StrictMode>
     );
 }
 
-rerenderEntireTree()
+rerenderEntireTree(store.getState())
 
 store.subscribe(rerenderEntireTree);
 
