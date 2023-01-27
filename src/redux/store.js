@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import navReducer from "./navReducer";
+
 const ADD_POST = 'ADD-POST';
 const CHANGE_POST_TEXT = 'CHANGE-POST-TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
@@ -123,43 +127,13 @@ const store = {
         this._callSubscriber = observer
     },
     dispatch(action) { // { type: 'ADD-POST'
-        if(action.type === ADD_POST){
-            if(this._state.profilePage.newPostText!=='') {
-                this._state.profilePage.postData.push({
-                    id: 4,
-                    message: this._state.profilePage.newPostText,
-                    date: "26.01.2023",
-                    countLike: 0
-                })
-                this._state.profilePage.newPostText = ''
-                this._callSubscriber(this._state)
-            }
-        }else if (action.type === CHANGE_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newPostText
-            this._callSubscriber(this._state)
-        }else if(action.type === ADD_MESSAGE){
-            if(this._state.dialogsPage.newMessageText!=='') {
-                this._state.dialogsPage.messageData.push({
-                    id: 5,
-                    text: this._state.dialogsPage.newMessageText,
-                    dateMessage: "26.01.2023",
-                    img: "https://rehabconceptspt.com/wp-content/uploads/2016/06/placeholder-640-square.jpg",
-                    author: 1
-                })
-                this._state.dialogsPage.newMessageText = ''
-                this._callSubscriber(this._state)
-            }
-        }else if (action.type === CHANGE_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newMessageText
-            this._callSubscriber(this._state)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.navSection = navReducer(this._state.navSection, action)
+
+        this._callSubscriber(this._state);
     }
 }
-
-export const addPostCreator = () => ({type: ADD_POST})
-export const changePostTextCreator = (text) => ({type: CHANGE_POST_TEXT, newPostText: text })
-export const addMessageCreator = () => ({ type: ADD_MESSAGE })
-export const changeMessageTextCreator = (text) => ({type: CHANGE_MESSAGE_TEXT, newMessageText: text})
 
 
 window.state = store.getState();
