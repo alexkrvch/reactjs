@@ -1,4 +1,3 @@
-
 const store = {
     _state:{
         profilePage: {
@@ -22,7 +21,7 @@ const store = {
                     countLike: 1
                 },
             ],
-            _textAreaText: ''
+            newPostText: ''
         },
         dialogsPage: {
             dialogsData:[
@@ -86,7 +85,8 @@ const store = {
                     img: "https://rehabconceptspt.com/wp-content/uploads/2016/06/placeholder-640-square.jpg",
                     author: 1
                 },
-            ]
+            ],
+            newMessageText: ''
         },
         navSection: {
             users:[
@@ -114,26 +114,39 @@ const store = {
     getState() {
         return this._state;
     },
-    addPost() {
-        this._state.profilePage.postData.push({
-            id: 4,
-            message: this._state.profilePage.textAreaText,
-            date: "26.01.2023",
-            countLike: 0
-        })
-        this._state.profilePage.textAreaText = ''
-        this._callSubscriber(this._state)
-    },
-    changePostText(newPostText) {
-        this._state.profilePage.textAreaText = newPostText
-        this._callSubscriber(this._state)
-    },
     subscribe(observer) {
         this._callSubscriber = observer
+    },
+    dispatch(action) { // { type: 'ADD-POST'
+        if(action.type === 'ADD-POST'){
+            this._state.profilePage.postData.push({
+                id: 4,
+                message: this._state.profilePage.newPostText,
+                date: "26.01.2023",
+                countLike: 0
+            })
+            this._state.profilePage.newPostText = ''
+            this._callSubscriber(this._state)
+        }else if (action.type === 'CHANGE-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newPostText
+            this._callSubscriber(this._state)
+        }else if(action.type === 'ADD-MESSAGE'){
+            this._state.dialogsPage.messageData.push({
+                id: 5,
+                text: this._state.dialogsPage.newMessageText,
+                dateMessage: "26.01.2023",
+                img: "https://rehabconceptspt.com/wp-content/uploads/2016/06/placeholder-640-square.jpg",
+                author: 1
+            })
+            this._state.dialogsPage.newMessageText = ''
+            this._callSubscriber(this._state)
+        }else if (action.type === 'CHANGE-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.newMessageText
+            this._callSubscriber(this._state)
+        }
     }
 }
 
 window.state = store.getState();
-
 
 export default store

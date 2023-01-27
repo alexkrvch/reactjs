@@ -9,21 +9,25 @@ const MyPosts = (props) => {
     let newPostArea = React.createRef();
 
     const onAddPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     }
 
     const onPostChange = () => {
-        props.changePostText(newPostArea.current.value)
+        props.dispatch({type: 'CHANGE-POST-TEXT', newPostText: newPostArea.current.value})
+    }
+
+    const onClearPostText = () => {
+        props.dispatch({type: 'CHANGE-POST-TEXT', newPostText: ''})
     }
 
     return (
         <div className={s.myPosts}>
             <h3>My posts</h3>
             <div className={s.newPost}>
-                <textarea onChange={ onPostChange } ref={ newPostArea } value={ props.state.textAreaText } />
+                <textarea onChange={ onPostChange } ref={ newPostArea } value={ props.state.newPostText } />
                 <div className={s.buttons}>
                     <button onClick={ onAddPost }>Add post</button>
-                    <button>Remove</button>
+                    <button onClick={ onClearPostText }>Remove</button>
                 </div>
             </div>
             <div className={s.latestPosts}>
