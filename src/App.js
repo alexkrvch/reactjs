@@ -17,9 +17,9 @@ function App(props) {
         <Nav state={props.state.navSection} />
         <div className="wrapper__content">
             <Routes>
-                <Route path="/" element={<Profile store={props.store} />} />
-                <Route path="/profile" element={<Profile store={props.store} />} />
-                <Route path="/dialogs/*" element={<DialogsContainer store={props.store} />} />
+                <Route path="/" element={<Profile />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/dialogs/*" element={<DialogsContainer />} />
                 <Route path="/music" element={<Music />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/settings" element={<Settings />} />
