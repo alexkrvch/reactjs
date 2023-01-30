@@ -9,20 +9,21 @@ import ReactDOM from "react-dom/client";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
+    let state = store.getState();
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} dispatch={store.dispatch.bind(store)} />
+                <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
             </BrowserRouter>
         </React.StrictMode>
     );
 }
 
-rerenderEntireTree(store.getState())
+rerenderEntireTree(store)
 
 store.subscribe(() => {
-    rerenderEntireTree(store.getState())
+    rerenderEntireTree(store)
 });
 
 // If you want to start measuring performance in your app, pass a function

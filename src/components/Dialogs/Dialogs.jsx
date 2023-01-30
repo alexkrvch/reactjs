@@ -6,21 +6,21 @@ import {addMessageCreator, changeMessageTextCreator} from "../../redux/dialogsRe
 
 const Dialogs = (props) => {
 
-    let dialogs = props.state.dialogsData.map(d => <Dialog name={d.name} lastMessage={d.lastMessage} dateMessage={d.dateMessage} url={d.id} key={d.id} />)
-    let messages = props.state.messageData.map(m => <Message id={m.id} text={m.text} dateMessage={m.dateMessage} key={m.id} author={m.author} img={m.img} />)
+    let dialogs = props.dialogsData.map(d => <Dialog name={d.name} lastMessage={d.lastMessage} dateMessage={d.dateMessage} url={d.id} key={d.id} />)
+    let messages = props.messageData.map(m => <Message id={m.id} text={m.text} dateMessage={m.dateMessage} key={m.id} author={m.author} img={m.img} />)
 
     let newMessageArea = React.createRef();
 
     const onSendMessage = () => {
-        props.dispatch( addMessageCreator() );
+        props.sendMessage();
     }
 
     const onMessageChange = () => {
-        props.dispatch( changeMessageTextCreator(newMessageArea.current.value) )
+        props.changeMessage(newMessageArea.current.value)
     }
 
     const onClearMessageText = () => {
-        props.dispatch( changeMessageTextCreator('') )
+        props.changeMessage('')
     }
 
     return (
@@ -33,7 +33,7 @@ const Dialogs = (props) => {
                 <div className={s.messages_list}>
                     {messages}
                     <div className={s.sendMessage}>
-                        <textarea ref={newMessageArea} value={props.state.newMessageText} onChange={ onMessageChange }></textarea>
+                        <textarea ref={newMessageArea} value={props.newMessageText} onChange={ onMessageChange }></textarea>
                         <div className={s.buttons}>
                             <button onClick={ onSendMessage }>Send message</button>
                             <button onClick={ onClearMessageText }>Remove</button>
