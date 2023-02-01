@@ -4,7 +4,7 @@ import Message from "./Message/Message";
 import React from "react";
 
 const Dialogs = (props) => {
-
+debugger
     let dialogs = props.dialogsData.map(d => <Dialog name={d.name} lastMessage={d.lastMessage} dateMessage={d.dateMessage} url={d.id} key={d.id} />)
     let messages = props.messageData.map(m => <Message id={m.id} text={m.text} dateMessage={m.dateMessage} key={m.id} author={m.author} img={m.img} />)
 
