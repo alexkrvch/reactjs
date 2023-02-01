@@ -33,7 +33,7 @@ const profileReducer = (state = initialState, action) => {
                 stateCopy.postData = [...state.postData]
                 stateCopy.postData.push({
                     id: 4,
-                    message: state.newPostText,
+                    message: stateCopy.newPostText,
                     date: "26.01.2023",
                     countLike: 0
                 })

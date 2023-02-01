@@ -70,19 +70,25 @@ const initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
-            let stateCopy = {...state}
-            state.messageData.push({
-                id: 5,
-                text: state.newMessageText,
-                dateMessage: "26.01.2023",
-                img: "https://rehabconceptspt.com/wp-content/uploads/2016/06/placeholder-640-square.jpg",
-                author: 1
-            })
-            state.newMessageText = ''
-            return state
+            if(state.newMessageText !== '') {
+                let stateCopy = {...state}
+                stateCopy.messageData = [...state.messageData]
+                stateCopy.messageData.push({
+                    id: 5,
+                    text: stateCopy.newMessageText,
+                    dateMessage: "26.01.2023",
+                    img: "https://rehabconceptspt.com/wp-content/uploads/2016/06/placeholder-640-square.jpg",
+                    author: 1
+                })
+                stateCopy.newMessageText = ''
+                return stateCopy
+            } else {
+              return state
+            }
         case CHANGE_MESSAGE_TEXT:
-            state.newMessageText = action.newMessageText
-            return state
+            let stateCopy = {...state}
+            stateCopy.newMessageText = action.newMessageText
+            return stateCopy
         default:
             return state
     }
