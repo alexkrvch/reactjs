@@ -1,10 +1,11 @@
 .nav {
     grid-area: n;
-    border: 1px solid rgba(255,0,0,.2);
     display: flex;
     align-content: center;
     flex-flow: column;
-    padding: 15px 0;
+    padding: 15px 5px;
+    background-color: #171a1e70;
+    margin: 10px 0;
 }
 
 .item {
