@@ -29,23 +29,24 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             if(state.newPostText!=='') {
-                let stateCopy = {...state}
-                stateCopy.postData = [...state.postData]
-                stateCopy.postData.push({
-                    id: 4,
-                    message: stateCopy.newPostText,
-                    date: "26.01.2023",
-                    countLike: 0
-                })
-                stateCopy.newPostText = ''
-                return stateCopy
+                return {
+                    ...state,
+                    postData: [...state.postData, {
+                        id: 4,
+                        message: state.newPostText,
+                        date: "26.01.2023",
+                        countLike: 0
+                    }],
+                    newPostText: ''
+                }
             }else{
                 return state
             }
         case CHANGE_POST_TEXT:
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newPostText
-            return stateCopy
+            return {
+                ...state,
+                newPostText: action.newPostText
+            };
         default:
             return state
     }
