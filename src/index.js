@@ -13,13 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 let state = store.getState();
 root.render(
-    <React.StrictMode>
         <BrowserRouter>
             <Provider store={store}>
                 <App state={state} />
             </Provider>
         </BrowserRouter>
-    </React.StrictMode>
 );
 
 
