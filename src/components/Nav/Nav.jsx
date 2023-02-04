@@ -6,6 +6,7 @@ const Nav = (props) => {
     return (
         <nav className={s.nav}>
             <NavLink to="/profile" className={({ isActive }) => isActive ? `${s.item} ${s.active}` : s.item}><span>Profile</span></NavLink>
+            <NavLink to="/users" className={({ isActive }) => isActive ? `${s.item} ${s.active}` : s.item}><span>Users</span></NavLink>
             <NavLink to="/dialogs" className={({ isActive }) => isActive ? `${s.item} ${s.active}` : s.item}><span>Message</span></NavLink>
             <NavLink to="/music" className={({ isActive }) => isActive ? `${s.item} ${s.active}` : s.item}><span>Music</span></NavLink>
             <NavLink to="/news" className={({ isActive }) => isActive ? `${s.item} ${s.active}` : s.item}><span>News</span></NavLink>

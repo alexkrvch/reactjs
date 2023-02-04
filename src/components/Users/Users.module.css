@@ -1,0 +1,33 @@
+.users {
+    padding: 10px 0 10px 10px;
+}
+
+.userItem {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: start;
+    margin: 20px 0;
+}
+
+.userItem__left {
+    width: 10%;
+    margin-right: 20px;
+}
+
+.userItem__left img {
+    width: 80px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.userItem__center {
+    width: 75%;
+}
+
+.userItem__right {
+    width: 15%;
+    text-align: right;
+}
+
