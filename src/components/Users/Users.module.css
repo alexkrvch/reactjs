@@ -30,3 +30,9 @@
     width: 15%;
     text-align: right;
 }
+
+.selectPage {
+    border: 1px solid #fff;
+    display: inline-block;
+    padding: 2px 4px;
+}
