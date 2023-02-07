@@ -31,13 +31,34 @@
     text-align: right;
 }
 
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .selectPage {
     border: 1px solid #fff;
+    color: #333;
+    background: #fff;
     display: inline-block;
-    padding: 2px 4px;
+    padding: 2px 7px;
+    margin: 5px;
 }
 
 .simplePage {
-    padding: 2px 4px;
+    display: none;
+}
+
+.nearPage {
+    padding: 2px 7px;
     display: inline-block;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0);
+    transition: all 0.2s;
+    margin: 5px;
+}
+
+.nearPage:hover {
+    border: 1px solid #fff;
 }
