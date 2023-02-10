@@ -16,7 +16,6 @@ const Users = (props) => {
             {props.usersData.map (u => <div key={u.id} className={s.userItem}>
                 <div className={s.userItem__left}>
                     <div><img src={u.photos.small != null ? u.photos.small: userPhoto} alt='' /></div>
-
                 </div>
                 <div className={s.userItem__center}>
                     <div>{u.name}</div>
@@ -28,7 +27,7 @@ const Users = (props) => {
             </div>)}
             <div className={s.pagination}>
                 {pages.map(p => {
-                    return <span key={p} onClick={ (e) => {props.onPageChanged(p)} } className={props.currentPage === p ? s.selectPage : props.currentPage+4 < p || props.currentPage-4 > p ? s.simplePage : s.nearPage}>{p}</span>
+                    return <span key={p} onClick={ (e) => {props.onPageChanged(p)} } className={props.currentPage === p ? s.selectPage : props.currentPage+2 < p || props.currentPage-2 > p ? s.simplePage : s.nearPage}>{p}</span>
                 })}
             </div>
         </div>
